@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:doubb="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+
+    <!-- 配置Dubbox 的名称 计算机要使用 -->
+    <dubbo:application name="pinyougou-sellergoods-service"/>
+    <!-- 配置zookeeper地址  连接注册中心 -->
+    <dubbo:registry address="zookeeper://192.168.200.128:2181"/>
+
+    <!-- 配置对外暴露的端口号 -->
+    <dubbo:protocol name="dubbo" port="20881"/>
+    <!-- 扫描 Service实现类的 包 -->
+
+    <!--这个扫包的路径要注意，已经出错过一次了-->
+    <dubbo:annotation package="cn.itcast.service" />
+
+</beans>
